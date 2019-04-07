@@ -32,7 +32,7 @@ test: node_modules
 		--report-dir=./tests/coverage \
 		--reporter=none \
 		--temp-dir=./tests/.nyc_output \
-		node_modules/.bin/_mocha -b spec/*
+		node_modules/.bin/mocha -b spec/*.js spec/**/*.js
 	./node_modules/.bin/nyc report \
 		--reporter=html \
 		--reporter=text
