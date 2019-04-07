@@ -34,7 +34,7 @@ describe('lib/watchdog.js', () => {
 
         socket.terminate = () => {
             expect(error.message).to.equal('Watchdog timeout');
-            expect(pings).to.equal(2);
+            expect(pings).to.be.at.least(2);
             expect(socket._hb).to.equal(0);
             socket.readyState = 3;
             done();
