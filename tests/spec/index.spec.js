@@ -34,8 +34,4 @@ describe('index.js', () => {
 
         expect(new lib.Client(opts)).to.be.an('object');
     });
-
-    it('exports Server class', () => {
-        expect(typeof lib.Server).to.equal('function');
-    });
 });

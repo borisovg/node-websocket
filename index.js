@@ -18,5 +18,3 @@ exports.Client = function (opts) {
         return new Client(opts);
     }
 };
-
-exports.Server = require('./lib/Server.js');
