@@ -6,10 +6,20 @@ LCOV = coverage/coverage.lcov
 .PHONY: clean
 clean:
 	rm -rf \
-		 $(wildcard .nyc_*) \
+		$(wildcard .nyc_*) \
 		coverage \
 		node_modules \
 		npm-debug.log
+
+.PHONY: coverage
+coverage:
+	./node_modules/.bin/nyc report \
+		--cwd ../ \
+		--temp-directory ./tests/.nyc_output \
+		--reporter=text-lcov \
+		> $(LCOV)
+	./node_modules/.bin/codecov \
+		-f $(LCOV)
 
 ## test:   run the tests (default target)
 .PHONY: test
